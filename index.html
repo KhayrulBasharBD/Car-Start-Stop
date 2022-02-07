@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <Style>
+        .btn{
+            text-align: center;
+            
+        }
+        .btn button:nth-child(n){
+            margin-right: 15px;
+            padding: 10px;
+            font-size: 1rem;
+            margin-top: 20px;
+        }
+    </Style>
+    <title>Car Start & Stop</title>
+</head>
+<body>
+    <h1>If You want to drive the car, Click The Start Button</h1>
+    <div class="img">
+        <img src="./car.jfif" alt="" width="250px" height="150px">
+    </div>
+    <div class="btn">
+        <button class="start">Start</button>
+        <button class="stop">Stop</button>
+    </div>
+    <script>
+        let run = 0;
+        let timing;
+        let img = document.querySelector('img');
+        let start = document.querySelector('.start');
+        let stop = document.querySelector('.stop');
+
+        start.addEventListener('click', () => {
+            timing = setInterval(runFunc, 100)
+            
+            function runFunc(){
+                if(run == 900){
+                    clearInterval(timing)
+                    run = 0;
+                }else{
+                    run+= 5;
+                    img.style.marginLeft = run+"px";
+                }
+            }
+        })  
+        stop.addEventListener('click', () =>{
+            
+            clearInterval(timing);
+        })
+    </script>
+</body>
+</html>
